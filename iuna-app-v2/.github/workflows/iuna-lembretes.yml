@@ -1,0 +1,26 @@
+name: "Assistente da Iuna - Lembretes"
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 10 * * *"
+jobs:
+  enviar-lembretes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar repositorio
+        uses: actions/checkout@v4
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - name: Instalar dependencias
+        run: npm ci
+      - name: Enviar lembretes
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          MAMAE_PHONE: ${{ secrets.MAMAE_PHONE }}
+          MAMAE_CALLMEBOT_KEY: ${{ secrets.MAMAE_CALLMEBOT_KEY }}
+          PAPAI_PHONE: ${{ secrets.PAPAI_PHONE }}
+          PAPAI_CALLMEBOT_KEY: ${{ secrets.PAPAI_CALLMEBOT_KEY }}
+        run: npm run assistente

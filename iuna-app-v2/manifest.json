@@ -1,0 +1,11 @@
+{
+  "name": "Iúna App",
+  "short_name": "Iúna",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#fbf7ff",
+  "theme_color": "#7b3fb3",
+  "icons": [
+    { "src": "/public/icons/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

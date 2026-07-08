@@ -1,0 +1,16 @@
+{
+  "name": "iuna-app-v2",
+  "version": "2.0.0",
+  "description": "Aplicativo familiar de acompanhamento da gestação da Iúna",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "start": "npx serve .",
+    "assistente": "node scripts/enviar-lembretes.js"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "firebase-admin": "^13.0.2"
+  }
+}
